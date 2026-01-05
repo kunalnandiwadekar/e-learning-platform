@@ -2,10 +2,16 @@ import { Link } from "react-router-dom";
 
 export default function Header() {
   return (
-    <nav>
-      <Link to="/">Home</Link> |{" "}
-      <Link to="/courses">Courses</Link> |{" "}
-      <Link to="/login">Login</Link>
-    </nav>
+    <header className="bg-slate-900 text-white">
+      <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+        <h1 className="text-xl font-semibold">E-Learn</h1>
+
+        <nav className="space-x-6">
+          <Link className="hover:text-blue-400" to="/">Home</Link>
+          <Link className="hover:text-blue-400" to="/courses">Courses</Link>
+          <Link className="hover:text-blue-400" to="/login">Login</Link>
+        </nav>
+      </div>
+    </header>
   );
 }
