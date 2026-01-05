@@ -6,6 +6,8 @@ import Login from "./pages/Login";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import MyCourses from "./pages/MyCourses";
+import Signup from "./pages/Signup";
+
 
 function App() {
   return (
@@ -20,6 +22,7 @@ function App() {
             <Route path="/courses/:slug" element={<CourseDetail />} />
             <Route path="/login" element={<Login />} />
             <Route path="/my-courses" element={<MyCourses />} />
+            <Route path="/signup" element={<Signup />} />
           </Routes>
         </div>
       </main>

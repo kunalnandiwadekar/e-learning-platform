@@ -1,6 +1,9 @@
 import { Link } from 'react-router-dom';
+import { isLoggedIn } from '../utils/auth';
 
 export default function Home() {
+  const loggedIn = isLoggedIn();
+  
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
@@ -19,12 +22,21 @@ export default function Home() {
             >
               Browse Courses
             </Link>
-            <Link
-              to="/login"
-              className="px-6 py-3 bg-white text-blue-600 border border-blue-600 rounded hover:bg-gray-50"
-            >
-              Sign In
-            </Link>
+            {loggedIn ? (
+              <Link
+                to="/my-courses"
+                className="px-6 py-3 bg-white text-blue-600 border border-blue-600 rounded hover:bg-gray-50"
+              >
+                My Courses
+              </Link>
+            ) : (
+              <Link
+                to="/login"
+                className="px-6 py-3 bg-white text-blue-600 border border-blue-600 rounded hover:bg-gray-50"
+              >
+                Sign In
+              </Link>
+            )}
           </div>
         </div>
       </section>
@@ -70,7 +82,7 @@ export default function Home() {
             to="/signup"
             className="px-6 py-3 bg-blue-600 text-white rounded hover:bg-blue-700"
           >
-            Get Started for Free
+            Create Account
           </Link>
         </div>
       </section>
