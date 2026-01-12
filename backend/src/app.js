@@ -18,7 +18,9 @@ app.use("/api/auth", authRoutes);
 app.use("/api/courses", courseRoutes);
 app.use("/api/enrollments", enrollmentRoutes);
 app.use("/api/admin", adminRoutes);
+// Serve static files from uploads and public directories
 app.use("/uploads", express.static("uploads"));
+app.use(express.static("public"));
 
 app.get("/", (req, res) => {
   res.send("E-Learning Platform Backend is running 🚀");

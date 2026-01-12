@@ -17,7 +17,8 @@ const courseSchema = new mongoose.Schema(
     price: Number,
 
     thumbnail: {
-      type: String
+      type: String,
+      default: '/default-thumbnail.svg' // Default thumbnail path
     },
 
     published: {

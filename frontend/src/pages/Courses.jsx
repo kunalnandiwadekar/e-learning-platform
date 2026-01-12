@@ -22,11 +22,11 @@ export default function Courses() {
             className="bg-white rounded-xl shadow p-6"
           >
             <img
-              src={
-                course.thumbnail
-                  ? `https://e-learning-backend-fxz4.onrender.com/${course.thumbnail}`
-                  : "/placeholder-course.png"
-              }
+              src={`https://e-learning-backend-fxz4.onrender.com${course.thumbnail}`}
+              onError={(e) => {
+                e.target.onerror = null;
+                e.target.src = "/placeholder-course.png";
+              }}
               alt={course.title}
               className="w-full h-80 object-cover rounded-md"
             />

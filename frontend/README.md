@@ -74,8 +74,8 @@ frontend/
 
 Use the following credentials to access the Admin Dashboard:
 ```
-Email: admin@test.com  
-Password: admin123
+Email: kunal@test.com  
+Password: 123456
 ```
 
 After login, click **Admin Dashboard** from the top navigation.
