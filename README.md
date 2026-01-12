@@ -27,8 +27,18 @@ This repository contains **both backend and frontend**.
 ## 📂 Project Structure
 ```
 e-learning-platform/
-├── backend/ # Express + MongoDB API
-├── frontend/ # React (Vite) frontend
+├── backend/
+│   ├── src/
+│   ├── uploads/
+│   ├── package.json
+│   └── README.md
+│
+├── frontend/
+│   ├── src/
+│   ├── public/
+│   ├── package.json
+│   └── README.md
+│
 └── README.md
 ```
 ---
