@@ -36,12 +36,13 @@ e-learning-platform/
 ## ⚙️ How to Run the Project Locally
 
 ### 1️⃣ Clone the Repository
+git clone 
 ```bash
-git clone https://github.com/your-username/e-learning-platform.git
+https://github.com/your-username/e-learning-platform.git
 cd e-learning-platform
-2️⃣ Backend Setup
 ```
 
+## Backend Setup
 ```bash
 cd backend
 npm install
