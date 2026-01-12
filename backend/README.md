@@ -31,7 +31,6 @@ backend/
 ├── src/
 │   ├── config/               # Configuration files
 │   │   ├── db.js           # Database connection
-│   │   └── multer.js       # File upload config
 │   │
 │   ├── controllers/         # Route controllers
 │   │   ├── auth.controller.js
@@ -55,25 +54,15 @@ backend/
 │   │   ├── enrollment.routes.js
 │   │   └── admin.routes.js
 │   │
-│   ├── services/            # Business logic
-│   │   ├── auth.service.js
-│   │   └── course.service.js
+│   ├── middleware/
+│   │   ├── auth.middleware.js
+│   │   └── upload.middleware.js
 │   │
-│   ├── utils/               # Utility functions
-│   │   ├── logger.js
-│   │   └── apiError.js
-│   │
-│   ├── validations/         # Request validations
-│   │   ├── auth.validation.js
-│   │   └── course.validation.js
-│   │
-│   ├── app.js               # Express app configuration
-│   └── server.js            # Server entry point
+│   ├── app.js
+│   └── server.js
 │
-├── uploads/                 # Uploaded files (course thumbnails)
-├── tests/                   # Test files
-├── .env.example             # Environment variables example
-├── .gitignore
+├── uploads/        # Course thumbnail images
+├── .env
 ├── package.json
 └── README.md
 ```
