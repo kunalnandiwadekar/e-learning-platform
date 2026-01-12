@@ -59,12 +59,9 @@ export default function Login() {
         
         <p className="text-center text-sm text-gray-600">
           Don't have an account?{' '}
-          <Link
-            to="/signup"
-            className="px-8 py-3 bg-blue-600 text-white font-medium rounded-md shadow hover:bg-blue-700 transition"
-          >
-            signup
-          </Link>
+          <a href="/signup" className="text-blue-600 hover:underline">
+            Sign up
+          </a>
         </p>
       </form>
     </div>
