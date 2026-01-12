@@ -63,10 +63,10 @@ cd ../frontend
 npm install
 npm run dev
 ```
-```bash
-Frontend runs on:
+
+## Frontend runs on:
 http://localhost:5173
-```
+
 ## Authentication & Roles
 - JWT-based authentication
 
