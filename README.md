@@ -40,8 +40,9 @@ e-learning-platform/
 git clone https://github.com/your-username/e-learning-platform.git
 cd e-learning-platform
 2️⃣ Backend Setup
-```bash
+```
 
+```bash
 cd backend
 npm install
 Create a .env file inside backend/:
@@ -51,15 +52,17 @@ MONGO_URI=your_mongodb_connection_string
 JWT_SECRET=your_secret_key
 Run backend:
 
-bash
+```bash
 npm run dev
+```
 Backend runs on:
 http://localhost:5000
 3️⃣ Frontend Setup
-bash
+```bash
 cd ../frontend
 npm install
 npm run dev
+```
 Frontend runs on:
 http://localhost:5173
 👮 Authentication & Roles
