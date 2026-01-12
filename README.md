@@ -51,14 +51,14 @@ Create a .env file inside backend/:
 PORT=5000
 MONGO_URI=your_mongodb_connection_string
 JWT_SECRET=your_secret_key
-Run backend:
 
+# Run backend
 ```bash
 npm run dev
 ```
 Backend runs on:
 http://localhost:5000
-3️⃣ Frontend Setup
+## Frontend Setup
 ```bash
 cd ../frontend
 npm install
@@ -66,10 +66,10 @@ npm run dev
 ```
 Frontend runs on:
 http://localhost:5173
-👮 Authentication & Roles
+## Authentication & Roles
 JWT-based authentication
 
-Roles:
+# Roles:
 
 user – can browse and enroll in courses
 
@@ -78,31 +78,31 @@ admin – can manage courses and view enrollments
 Admin routes are protected on both frontend and backend
 
 ## Course Thumbnails
-Admin uploads course thumbnails
+- Admin uploads course thumbnails
 
-Images stored on backend (/uploads)
+- Images stored on backend (/uploads)
 
-Thumbnails rendered dynamically on frontend
+- Thumbnails rendered dynamically on frontend
 
 ## Deployment (Recommended)
-Backend: Render
+- Backend: Render
 
-Frontend: Vercel
+- Frontend: Vercel
 
-Both frontend and backend can be deployed independently using this repository.
+- Both frontend and backend can be deployed independently using this repository.
 
 
-User signup & login
+## User signup & login
 
-Course listing & detail pages
+- Course listing & detail pages
 
-Enrollment system
+- Enrollment system
 
-Admin dashboard
+- Admin dashboard
 
-Course CRUD operations
+- Course CRUD operations
 
-Image upload for course thumbnails
+- Image upload for course thumbnails
 
 ## License
 This project is developed for learning and internship submission purposes.
