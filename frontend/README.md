@@ -35,7 +35,6 @@ A modern, responsive e-learning platform built with React that allows users to b
 ```
 frontend/
 ├── public/                  # Static files
-│   └── placeholder-course.png
 │
 ├── src/
 │   ├── components/
@@ -142,19 +141,6 @@ The frontend is optimized for deployment on modern platforms:
 1. Connect your GitHub repository to Netlify
 2. Set build command: `npm run build`
 3. Set publish directory: `dist`
-
-## 📚 Documentation
-
-- [API Documentation](https://your-api-docs.com) (Link to your API docs)
-- [Component Library](https://storybook.js.org/) (If applicable)
-
-## 🤝 Contributing
-
-Contributions are welcome! Please read our [contributing guidelines](CONTRIBUTING.md) before submitting pull requests.
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 🙏 Acknowledgments
 

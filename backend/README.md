@@ -9,7 +9,6 @@ A robust and scalable backend service for the E-Learning Platform, built with No
 - **Enrollment System** - Track student enrollments and progress
 - **Role-Based Access Control** - Separate permissions for students and admins
 - **File Upload** - Handle course thumbnails with Multer
-- **Data Validation** - Input validation and sanitization
 - **Error Handling** - Comprehensive error handling and logging
 
 ## 🛠 Tech Stack
@@ -20,9 +19,6 @@ A robust and scalable backend service for the E-Learning Platform, built with No
 - **Authentication**: JWT (JSON Web Tokens)
 - **File Upload**: Multer
 - **Security**: Helmet, CORS, Rate Limiting
-- **Validation**: Joi
-- **Logging**: Winston
-- **Testing**: Jest, Supertest
 
 ## 📁 Project Structure
 
@@ -106,14 +102,6 @@ backend/
    JWT_SECRET=your_jwt_secret_key
    JWT_EXPIRES_IN=30d
    
-   # File Upload
-   MAX_FILE_SIZE=5MB
-   UPLOAD_DIR=./uploads
-   
-   # Rate Limiting
-   RATE_LIMIT_WINDOW_MS=15*60*1000
-   RATE_LIMIT_MAX=100
-   ```
 
 4. Start the development server:
    ```bash
@@ -227,14 +215,6 @@ npm run test:watch
 - **Backend**: AWS EC2, Heroku, Render, Railway
 - **Database**: MongoDB Atlas, AWS DocumentDB
 - **Storage**: AWS S3 (for file uploads in production)
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🤝 Contributing
-
-Contributions are welcome! Please read our [contributing guidelines](CONTRIBUTING.md) before submitting pull requests.
 
 ## 🙏 Acknowledgments
 
