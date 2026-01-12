@@ -20,4 +20,8 @@ app.use("/api/enrollments", enrollmentRoutes);
 app.use("/api/admin", adminRoutes);
 app.use("/uploads", express.static("uploads"));
 
+app.get("/", (req, res) => {
+  res.send("E-Learning Platform Backend is running 🚀");
+});
+
 module.exports = app;
