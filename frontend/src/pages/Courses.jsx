@@ -21,6 +21,16 @@ export default function Courses() {
             key={course._id}
             className="bg-white rounded-xl shadow p-6"
           >
+            <img
+              src={
+                course.thumbnail
+                  ? `http://localhost:5000${course.thumbnail}`
+                  : "/placeholder-course.png"
+              }
+              alt={course.title}
+              className="w-full h-80 object-cover rounded-md"
+            />
+
             <h3 className="text-xl font-medium mb-2">
               {course.title}
             </h3>

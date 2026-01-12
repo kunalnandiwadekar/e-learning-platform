@@ -1,20 +1,29 @@
 const mongoose = require("mongoose");
 
-const lessonSchema = new mongoose.Schema({
-  title: String,
-  content: String,
-  order: Number,
-});
-
 const courseSchema = new mongoose.Schema(
   {
-    title: { type: String, required: true },
-    slug: { type: String, required: true, unique: true },
+    title: {
+      type: String,
+      required: true
+    },
+    slug: {
+      type: String,
+      required: true,
+      unique: true
+    },
     description: String,
-    price: Number,
+    instructor: String,
     category: String,
-    difficulty: String,
-    lessons: [lessonSchema],
+    price: Number,
+
+    thumbnail: {
+      type: String
+    },
+
+    published: {
+      type: Boolean,
+      default: false
+    }
   },
   { timestamps: true }
 );

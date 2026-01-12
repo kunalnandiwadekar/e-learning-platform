@@ -8,6 +8,11 @@ export default function Signup() {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
+  const token = localStorage.getItem("token");
+  if (token) {
+    navigate("/courses");
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -20,6 +25,7 @@ export default function Signup() {
 
       // auto-login after signup
       localStorage.setItem("token", res.data.token);
+      localStorage.setItem("role", res.data.user.role);
       navigate("/courses");
     } catch (err) {
       alert("Signup failed");

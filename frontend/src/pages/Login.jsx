@@ -7,6 +7,11 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
+  const token = localStorage.getItem("token");
+  if (token) {
+    navigate("/courses");
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -17,6 +22,7 @@ export default function Login() {
       });
 
       localStorage.setItem("token", res.data.token);
+      localStorage.setItem("role", res.data.user.role);
       navigate("/courses");
     } catch (err) {
       alert("Login failed");
