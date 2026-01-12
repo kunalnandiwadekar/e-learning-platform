@@ -35,9 +35,9 @@ e-learning-platform/
 
 ## ⚙️ How to Run the Project Locally
 
-### 1️⃣ Clone the Repository
-git clone 
+### Clone the Repository
 ```bash
+git clone 
 https://github.com/your-username/e-learning-platform.git
 cd e-learning-platform
 ```
@@ -52,28 +52,31 @@ PORT=5000
 MONGO_URI=your_mongodb_connection_string
 JWT_SECRET=your_secret_key
 ```
-# Run backend
+```bash
 npm run dev
-# Backend runs on:
+```
+## Backend runs on:
 http://localhost:5000
 ## Frontend Setup
-```bash
+```
 cd ../frontend
 npm install
 npm run dev
 ```
+```bash
 Frontend runs on:
 http://localhost:5173
+```
 ## Authentication & Roles
-JWT-based authentication
+- JWT-based authentication
 
 # Roles:
 
-user – can browse and enroll in courses
+- user – can browse and enroll in courses
 
-admin – can manage courses and view enrollments
+- admin – can manage courses and view enrollments
 
-Admin routes are protected on both frontend and backend
+- Admin routes are protected on both frontend and backend
 
 ## Course Thumbnails
 - Admin uploads course thumbnails
