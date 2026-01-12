@@ -24,7 +24,7 @@ export default function Courses() {
             <img
               src={
                 course.thumbnail
-                  ? `http://localhost:5000${course.thumbnail}`
+                  ? `https://e-learning-backend-fxz4.onrender.com/${course.thumbnail}`
                   : "/placeholder-course.png"
               }
               alt={course.title}
