@@ -25,12 +25,12 @@ This repository contains **both backend and frontend**.
 ---
 
 ## 📂 Project Structure
-
+```
 e-learning-platform/
 ├── backend/ # Express + MongoDB API
 ├── frontend/ # React (Vite) frontend
 └── README.md
-
+```
 ---
 
 ## ⚙️ How to Run the Project Locally
@@ -51,12 +51,10 @@ Create a .env file inside backend/:
 PORT=5000
 MONGO_URI=your_mongodb_connection_string
 JWT_SECRET=your_secret_key
-
-# Run backend
-```bash
-npm run dev
 ```
-Backend runs on:
+# Run backend
+npm run dev
+# Backend runs on:
 http://localhost:5000
 ## Frontend Setup
 ```bash
