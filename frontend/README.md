@@ -70,6 +70,16 @@ frontend/
 └── README.md
 ```
 
+## 🔑 Demo Admin Access
+
+Use the following credentials to access the Admin Dashboard:
+```
+Email: admin@test.com  
+Password: admin123
+```
+
+After login, click **Admin Dashboard** from the top navigation.
+
 ## 🚀 Getting Started
 
 ### Prerequisites
