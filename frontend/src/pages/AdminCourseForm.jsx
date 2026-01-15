@@ -16,6 +16,8 @@ export default function AdminCourseForm() {
     category: 'Web Development',
     isPublished: false,
   });
+  const [thumbnailFile, setThumbnailFile] = useState(null);
+  const [previewUrl, setPreviewUrl] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
@@ -48,10 +50,29 @@ export default function AdminCourseForm() {
     setError('');
 
     try {
+      const data = new FormData();
+      
+      // Append all form data to FormData object
+      Object.keys(formData).forEach(key => {
+        data.append(key, formData[key]);
+      });
+      
+      // If there's a new thumbnail file, append it
+      if (thumbnailFile) {
+        data.append('thumbnail', thumbnailFile);
+      }
+
+      // Set the content type to multipart/form-data
+      const config = {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      };
+
       if (isEditMode) {
-        await api.put(`/admin/courses/${id}`, formData);
+        await api.put(`/admin/courses/${id}`, data, config);
       } else {
-        await api.post('/admin/courses', formData);
+        await api.post('/admin/courses', data, config);
       }
       navigate('/admin');
     } catch (err) {
@@ -61,6 +82,20 @@ export default function AdminCourseForm() {
       setLoading(false);
     }
   };
+
+  // Create a preview as a side effect, whenever selected file is changed
+  useEffect(() => {
+    if (!thumbnailFile) {
+      setPreviewUrl('');
+      return;
+    }
+
+    const objectUrl = URL.createObjectURL(thumbnailFile);
+    setPreviewUrl(objectUrl);
+
+    // Free memory when this component is unmounted
+    return () => URL.revokeObjectURL(objectUrl);
+  }, [thumbnailFile]);
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -148,11 +183,44 @@ export default function AdminCourseForm() {
               <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="thumbnail">
                 Thumbnail
               </label>
-              <input
-                type="file"
-                accept="image/*"
-                onChange={(e) => setThumbnailFile(e.target.files[0])}
-              />
+              <div className="mt-1 flex items-center">
+                <label
+                  className="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 cursor-pointer"
+                >
+                  <span>Choose file</span>
+                  <input
+                    id="thumbnail"
+                    name="thumbnail"
+                    type="file"
+                    className="sr-only"
+                    accept="image/*"
+                    onChange={(e) => setThumbnailFile(e.target.files?.[0] || null)}
+                  />
+                </label>
+                <span className="ml-2 text-sm text-gray-500">
+                  {thumbnailFile ? thumbnailFile.name : 'No file chosen'}
+                </span>
+              </div>
+              {previewUrl && (
+                <div className="mt-2">
+                  <p className="text-sm text-gray-500 mb-1">Preview:</p>
+                  <img 
+                    src={previewUrl} 
+                    alt="Thumbnail preview" 
+                    className="h-32 w-32 object-cover rounded"
+                  />
+                </div>
+              )}
+              {formData.thumbnail && !previewUrl && (
+                <div className="mt-2">
+                  <p className="text-sm text-gray-500 mb-1">Current thumbnail:</p>
+                  <img 
+                    src={formData.thumbnail} 
+                    alt="Current thumbnail" 
+                    className="h-32 w-32 object-cover rounded"
+                  />
+                </div>
+              )}
             </div>
 
             <div>
