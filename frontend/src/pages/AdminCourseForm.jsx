@@ -18,6 +18,22 @@ export default function AdminCourseForm() {
   });
   const [thumbnailFile, setThumbnailFile] = useState(null);
   const [previewUrl, setPreviewUrl] = useState('');
+  
+  // Function to generate a default thumbnail with course initial
+  const getDefaultThumbnail = (title) => {
+    const initial = title ? title.charAt(0).toUpperCase() : 'C';
+    const colors = ['#3B82F6', '#10B981', '#F59E0B', '#8B5CF6', '#EC4899'];
+    const color = colors[Math.floor(Math.random() * colors.length)];
+    
+    return (
+      <div 
+        className="h-full w-full flex items-center justify-center text-white text-4xl font-bold rounded"
+        style={{ backgroundColor: color }}
+      >
+        {initial}
+      </div>
+    );
+  };
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
@@ -179,48 +195,58 @@ export default function AdminCourseForm() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-            <div>
-              <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="thumbnail">
-                Thumbnail
+            <div className="space-y-2">
+              <label className="block text-gray-700 text-sm font-bold mb-2">
+                Course Thumbnail
               </label>
-              <div className="mt-1 flex items-center">
-                <label
-                  className="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 cursor-pointer"
-                >
-                  <span>Choose file</span>
-                  <input
-                    id="thumbnail"
-                    name="thumbnail"
-                    type="file"
-                    className="sr-only"
-                    accept="image/*"
-                    onChange={(e) => setThumbnailFile(e.target.files?.[0] || null)}
-                  />
-                </label>
-                <span className="ml-2 text-sm text-gray-500">
-                  {thumbnailFile ? thumbnailFile.name : 'No file chosen'}
-                </span>
+              <div className="flex items-center space-x-4">
+                <div className="relative flex-shrink-0 h-32 w-48">
+                  {previewUrl ? (
+                    <img
+                      src={previewUrl}
+                      alt="Thumbnail preview"
+                      className="h-full w-full rounded object-cover border border-gray-200"
+                    />
+                  ) : formData.thumbnail ? (
+                    <img
+                      src={formData.thumbnail}
+                      alt="Course thumbnail"
+                      className="h-full w-full rounded object-cover border border-gray-200"
+                    />
+                  ) : (
+                    <div className="h-full w-full rounded border-2 border-dashed border-gray-300 overflow-hidden">
+                      {getDefaultThumbnail(formData.title)}
+                    </div>
+                  )}
+                </div>
+                
+                <div>
+                  <label className="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 cursor-pointer">
+                    <span>Change</span>
+                    <input
+                      type="file"
+                      className="sr-only"
+                      accept="image/*"
+                      onChange={(e) => setThumbnailFile(e.target.files?.[0] || null)}
+                    />
+                  </label>
+                  <p className="mt-1 text-xs text-gray-500">
+                    JPG, PNG, or GIF (max 2MB)
+                  </p>
+                  {thumbnailFile && (
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setThumbnailFile(null);
+                        document.querySelector('input[type="file"]').value = '';
+                      }}
+                      className="mt-2 text-sm text-red-600 hover:text-red-800"
+                    >
+                      Remove
+                    </button>
+                  )}
+                </div>
               </div>
-              {previewUrl && (
-                <div className="mt-2">
-                  <p className="text-sm text-gray-500 mb-1">Preview:</p>
-                  <img 
-                    src={previewUrl} 
-                    alt="Thumbnail preview" 
-                    className="h-32 w-32 object-cover rounded"
-                  />
-                </div>
-              )}
-              {formData.thumbnail && !previewUrl && (
-                <div className="mt-2">
-                  <p className="text-sm text-gray-500 mb-1">Current thumbnail:</p>
-                  <img 
-                    src={formData.thumbnail} 
-                    alt="Current thumbnail" 
-                    className="h-32 w-32 object-cover rounded"
-                  />
-                </div>
-              )}
             </div>
 
             <div>
